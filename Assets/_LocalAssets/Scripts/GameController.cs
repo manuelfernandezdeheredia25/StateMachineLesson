@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [Header("Camera")]
     public float cameraPanSpeed = 0.01f;
     public float zoomSpeed = 0.01f, maxZoom = 20f, minZoom = 4f;
+    public Sim sim;
     //[Header("Prefabs")]
     //public GameObject selectorPrefab;
     //public GameObject targetPrefab;
@@ -79,7 +80,7 @@ public class GameController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            SelectCubeIfHit(hit);
+            TryInteract(hit);
 
         }
     }
@@ -110,13 +111,11 @@ public class GameController : MonoBehaviour
 
 
 
-    private void SelectCubeIfHit(RaycastHit hit)
+    private void TryInteract(RaycastHit hit)
     {
-        //Debug.Log("Tocando " + hit.transform.name);
-        //if (hit.transform.gameObject.TryGetComponent(out CubeActor actor))
-        //{
-        //    selectorObj.SetActive(true);
-        //    selectedCube = actor;
-        //}
+        Debug.Log("Tocando " + hit.transform.name);
+        
+            sim.Interact(hit);
+        
     }
 }
