@@ -19,7 +19,8 @@ public class SimBehaviourKick : SimBehaviourBase
         sim.transform.rotation = Quaternion.LookRotation(new Vector3(aux.x,0,aux.z));
         sim.GetComponent<Animator>().SetTrigger("kick");
         Debug.Log("kick! at " + sim.arm.transform.position);
-        ballRg.AddExplosionForce(100, sim.arm.transform.position, 5);
+        Debug.Log(ballRg.transform.gameObject.name);
+        ballRg.AddExplosionForce(120, sim.transform.position - new Vector3(0,sim.transform.position.y,0), 5);
 
         timerDuration = 4;
         StartTimer();

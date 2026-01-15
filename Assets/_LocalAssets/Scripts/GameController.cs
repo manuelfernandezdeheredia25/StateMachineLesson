@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
         {
             TryInteract(hit);
             
-            ball.GetComponent<Rigidbody>().AddExplosionForce(120, hit.point, 1);
+            ball.GetComponent<Rigidbody>().AddExplosionForce(120, hit.point, 10);
             
         }
     }
