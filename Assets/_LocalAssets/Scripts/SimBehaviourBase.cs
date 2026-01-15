@@ -3,10 +3,11 @@ using UnityEngine;
 public abstract class SimBehaviourBase : ISimBehaviour
 {
     protected Sim sim;
-    protected bool isInterrumpible = true;
-    protected float timeStart = 0;
-    protected float changeWalking = 10;
+ 
+    protected float timerStart = 0;
+    protected float timerDuration = 10;
 
+    public bool IsInterrumpible { get; set; }
 
     public void SetSim(Sim sim)
     {
@@ -15,6 +16,18 @@ public abstract class SimBehaviourBase : ISimBehaviour
     public SimBehaviourBase(Sim sim)
     {
         this.sim = sim;
+        IsInterrumpible = true;
+    }
+
+    protected void StartTimer()
+    {
+        if (TimerEnded)
+            timerStart = Time.time;
+    }
+
+    protected bool TimerEnded
+    {
+        get { return Time.time - timerStart >= timerDuration; }
     }
 
     public SimBehaviourBase() { }

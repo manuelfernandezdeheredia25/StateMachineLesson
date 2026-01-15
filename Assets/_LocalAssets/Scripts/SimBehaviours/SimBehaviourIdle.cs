@@ -9,7 +9,7 @@ public class SimBehaviourIdle : SimBehaviourBase
 
     public override void Awake()
     {
-       timeStart = Time.time;
+       StartTimer();
     }
 
     public override void Interact(RaycastHit hit)
@@ -27,9 +27,9 @@ public class SimBehaviourIdle : SimBehaviourBase
 
     public override void Update()
     { 
-        if(Time.time - timeStart >= changeWalking)
+        if(TimerEnded)
         {
-            Debug.Log("Cambio Estado --> Walking " + Time.time);
+            
             sim.changeState(new SimBehaviourWalking(sim));
         }
     }

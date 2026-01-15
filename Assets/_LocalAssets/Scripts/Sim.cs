@@ -7,6 +7,9 @@ public class Sim : MonoBehaviour
     public float speed = 0.5f;
     public float minDistance = 2f;
     public GameObject[] walkingPoints;
+    public GameObject arm;
+
+   
 
     private void Awake()
     {
@@ -16,6 +19,7 @@ public class Sim : MonoBehaviour
 
     public void changeState(ISimBehaviour behaviour)
     {
+        Debug.Log("Changing state to: " + behaviour.ToString());
         simBehaviour = behaviour;
         simBehaviour.Awake();
     }
@@ -25,7 +29,7 @@ public class Sim : MonoBehaviour
 
     }
 
-    public void Interact(RaycastHit hit)  // Por implementar 
+    public void Interact(RaycastHit hit)
     {
         simBehaviour.Interact(hit);
     }
@@ -33,5 +37,15 @@ public class Sim : MonoBehaviour
     void Update()
     {
         simBehaviour.Update();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("chocando con " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag("ball") && simBehaviour.IsInterrumpible)
+        {
+            collision.rigidbody.ResetInertiaTensor();
+            changeState(new SimBehaviourKick(this, collision.rigidbody, simBehaviour));
+        }
     }
 }

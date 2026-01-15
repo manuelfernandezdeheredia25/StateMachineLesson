@@ -12,6 +12,7 @@ TagManager:
   - bench
   - fence
   - lamp
+  - sim
   layers:
   - Default
   - TransparentFX

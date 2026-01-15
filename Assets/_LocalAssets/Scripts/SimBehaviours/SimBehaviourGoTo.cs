@@ -12,7 +12,7 @@ public class SimBehaviourGoTo : SimBehaviourBase
 
     public override void Awake()
     {
-        isInterrumpible = true;
+        IsInterrumpible = true;
         FinalPos = interactable.transform.position;
     }
 

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public interface ISimBehaviour
 {
+
+    bool IsInterrumpible { get; set; }
     void Awake();
 
     void Update();

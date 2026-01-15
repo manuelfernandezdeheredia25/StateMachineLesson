@@ -10,7 +10,7 @@ public class SimBehaviourWalking : SimBehaviourBase
 
     public override void Awake()
     {
-        timeStart = Time.time;
+        timerStart = Time.time;
     }
 
     public override void Interact(RaycastHit hit)
@@ -28,7 +28,7 @@ public class SimBehaviourWalking : SimBehaviourBase
           count++;
        }
        if(count>= sim.walkingPoints.Length){
-          Debug.Log("Cambio Estado --> Idle " + Time.time);
+          
           sim.changeState(new SimBehaviourIdle(sim));
        }
     }

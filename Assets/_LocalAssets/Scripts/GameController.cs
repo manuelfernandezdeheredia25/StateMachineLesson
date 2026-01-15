@@ -11,8 +11,11 @@ public class GameController : MonoBehaviour
     [Header("Camera")]
     public float cameraPanSpeed = 0.01f;
     public float zoomSpeed = 0.01f, maxZoom = 20f, minZoom = 4f;
+    public float minX = -16f, minY = -23f, maxX = 2f, maxY = -3f;
+
+    [Header("Prefabs")]
     public Sim sim;
-    //[Header("Prefabs")]
+    public GameObject ball;
     //public GameObject selectorPrefab;
     //public GameObject targetPrefab;
 
@@ -69,6 +72,8 @@ public class GameController : MonoBehaviour
     {
         (float dx, float dy, float dz) = (Input.mousePositionDelta.x, Input.mousePositionDelta.y, Input.mousePositionDelta.z);
         Camera.main.transform.position += (dx*new Vector3(-1,0,1).normalized + dy * new Vector3(-1, 0, -1).normalized) * cameraPanSpeed;
+        Vector3 camPos = Camera.main.transform.position;
+        Camera.main.transform.position = new Vector3(Mathf.Clamp(camPos.x, minX, maxX), camPos.y, Mathf.Clamp(camPos.z, minY, maxY));
     }
 
     private void HandleLeftMouseInput()
@@ -81,7 +86,9 @@ public class GameController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             TryInteract(hit);
-
+            
+            ball.GetComponent<Rigidbody>().AddExplosionForce(120, hit.point, 1);
+            
         }
     }
 
@@ -116,6 +123,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Tocando " + hit.transform.name);
         
             sim.Interact(hit);
+
         
     }
 }
