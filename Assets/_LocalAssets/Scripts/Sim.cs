@@ -6,6 +6,7 @@ public class Sim : MonoBehaviour
 
     public float speed = 0.5f;
     public float minDistance = 2f;
+    public float kickStrength = 120f;
     public GameObject[] walkingPoints;
     public GameObject arm;
 
@@ -29,6 +30,10 @@ public class Sim : MonoBehaviour
 
     }
 
+    public void BecomeInterrumpible()
+    {
+        simBehaviour.IsInterrumpible = true;
+    }
     public void Interact(RaycastHit hit)
     {
         simBehaviour.Interact(hit);

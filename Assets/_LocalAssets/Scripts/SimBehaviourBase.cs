@@ -7,6 +7,7 @@ public abstract class SimBehaviourBase : ISimBehaviour
     protected float timerStart = 0;
     protected float timerDuration = 10;
 
+    protected bool started = false;
     public bool IsInterrumpible { get; set; }
 
     public void SetSim(Sim sim)
