@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5156247782467216769}
   - component: {fileID: 2236324093489943436}
   - component: {fileID: 6734129614632499427}
+  - component: {fileID: -8459670347685605617}
   m_Layer: 0
   m_Name: axe
   m_TagString: axe
@@ -110,3 +111,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0060077976, y: 0.0015723753, z: 0.016640058}
   m_Center: {x: 0.0021679532, y: 0, z: 0.0024174515}
+--- !u!114 &-8459670347685605617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7012326440842521967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2808329b7c40a4faf7466eaf47b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 6
+  hoverTextPrefab: {fileID: 6144333445777739636, guid: 50cd9d0e89fdf0140aabea18ffff5889, type: 3}

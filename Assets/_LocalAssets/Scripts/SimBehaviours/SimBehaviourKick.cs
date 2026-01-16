@@ -19,7 +19,7 @@ public class SimBehaviourKick : SimBehaviourBase
             return;
         }
         started = true;
-        //Vector3.RotateTowards
+        
         Vector3 aux = ballRg.transform.position - sim.transform.position;
         sim.transform.rotation = Quaternion.LookRotation(new Vector3(aux.x,0,aux.z));
         sim.GetComponent<Animator>().SetTrigger("kick");

@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour
 
     private void HandleMouseInput()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {   
             HandleLeftMouseInput();
