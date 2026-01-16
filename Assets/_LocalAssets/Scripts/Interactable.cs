@@ -38,7 +38,7 @@ public class Interactable : MonoBehaviour
                 interactingBehaviour = new SimBehaviourCoin();
                 break;
              case interactTypes.bench:
-                interactingBehaviour = new SimBehaviourBench();
+                interactingBehaviour = new SimBehaviourBench(this.gameObject);
                 break;
             case interactTypes.robo:
                 interactingBehaviour = new SimBehaviourRobo();

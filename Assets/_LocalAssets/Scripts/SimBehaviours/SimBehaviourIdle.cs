@@ -20,7 +20,6 @@ public class SimBehaviourIdle : SimBehaviourBase
             inter.interactingBehaviour.SetSim(sim);
                 
              sim.changeState(new SimBehaviourGoTo(sim,inter));
-            
         }
     }
 
