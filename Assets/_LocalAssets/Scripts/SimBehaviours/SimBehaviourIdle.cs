@@ -17,7 +17,6 @@ public class SimBehaviourIdle : SimBehaviourBase
         
         if (hit.transform.gameObject.TryGetComponent(out Interactable inter))
         {
-            
             inter.interactingBehaviour.SetSim(sim);
                 
              sim.changeState(new SimBehaviourGoTo(sim,inter));
@@ -29,7 +28,6 @@ public class SimBehaviourIdle : SimBehaviourBase
     { 
         if(TimerEnded)
         {
-            
             sim.changeState(new SimBehaviourWalking(sim));
         }
     }

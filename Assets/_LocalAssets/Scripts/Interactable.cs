@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,7 +29,7 @@ public class Interactable : MonoBehaviour
         switch (interactable)
         {
             case interactTypes.lamp:
-                interactingBehaviour = new SimBehaviourLamp();
+                interactingBehaviour = new SimBehaviourLamp(this.gameObject);
                 break;
              case interactTypes.tree:
                 interactingBehaviour = new SimBehaviourTree();

@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class SimBehaviourLamp : SimBehaviourBase
 {
-    public SimBehaviourLamp()
+    GameObject lamp;
+
+    public SimBehaviourLamp(GameObject lamp)
     {
+        this.lamp = lamp;
     }
 
     public SimBehaviourLamp(Sim sim) : base(sim)
@@ -12,7 +15,17 @@ public class SimBehaviourLamp : SimBehaviourBase
 
     public override void Awake()
     {
-        Debug.Log("awake lamp");
+        Light lampLight = lamp.GetComponentInChildren<Light>();
+        if (lampLight.enabled)
+        {
+            lampLight.enabled = false;
+        }
+        else
+        {
+            lampLight.enabled = true;
+        }
+        timerDuration = 5f;
+        StartTimer();
     }
 
     public override void Interact(RaycastHit hit)
@@ -22,6 +35,9 @@ public class SimBehaviourLamp : SimBehaviourBase
 
     public override void Update()
     {
-        Debug.Log("update lamp");
+        if (TimerEnded)
+        {
+            sim.changeState(new SimBehaviourIdle(sim));
+        }
     }
 }
