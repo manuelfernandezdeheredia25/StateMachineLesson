@@ -41,7 +41,7 @@ public class Interactable : MonoBehaviour
                 interactingBehaviour = new SimBehaviourBench(this.gameObject);
                 break;
             case interactTypes.robo:
-                interactingBehaviour = new SimBehaviourRobo();
+                interactingBehaviour = new SimBehaviourRoboTalk(hoverTextPrefab,"BIP BOP");
                 break;
             case interactTypes.axe:
                 interactingBehaviour = new SimBehaviourAxe();

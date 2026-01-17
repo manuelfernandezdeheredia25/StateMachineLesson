@@ -12,6 +12,7 @@ public class SimBehaviourKick : SimBehaviourBase
         this.previousState = previousState;
         IsInterrumpible = false;
     }
+
     public override void Awake()
     {
         if (started)
@@ -26,21 +27,17 @@ public class SimBehaviourKick : SimBehaviourBase
         Debug.Log("kick! at " + sim.arm.transform.position);
         Debug.Log(ballRg.transform.gameObject.name);
         ballRg.AddExplosionForce(sim.kickStrength, sim.transform.position - new Vector3(0,sim.transform.position.y,0), 5);
-
         timerDuration = 2;
         StartTimer();
     }
 
-    public override void Interact(RaycastHit hit)
-    {
-        
-    }
 
     public override void Update()
     {
         
         if (TimerEnded)
         {
+            started = false;
             sim.changeState(previousState);
         }
     }

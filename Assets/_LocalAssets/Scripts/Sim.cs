@@ -21,6 +21,7 @@ public class Sim : MonoBehaviour
     public void changeState(ISimBehaviour behaviour)
     {
         Debug.Log("Changing state to: " + behaviour.ToString());
+        simBehaviour.Asleep();
         simBehaviour = behaviour;
         simBehaviour.Awake();
     }

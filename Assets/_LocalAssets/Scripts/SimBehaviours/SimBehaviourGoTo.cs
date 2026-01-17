@@ -16,11 +16,6 @@ public class SimBehaviourGoTo : SimBehaviourBase
         FinalPos = interactable.transform.position;
     }
 
-    public override void Interact(RaycastHit hit)
-    {
-
-    }
-
     public override void Update()
     {
 

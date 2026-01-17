@@ -35,7 +35,23 @@ public abstract class SimBehaviourBase : ISimBehaviour
 
     public abstract void Awake();
 
-    public abstract void Interact(RaycastHit hit);
+    public virtual void Asleep()
+    {
+
+    }
+
+    public virtual void Interact(RaycastHit hit)
+    {
+        Debug.Log("interacting");
+        if (!IsInterrumpible) return;
+
+        if (hit.transform.gameObject.TryGetComponent(out Interactable inter))
+        {
+            inter.interactingBehaviour.SetSim(sim);
+
+            sim.changeState(new SimBehaviourGoTo(sim, inter));
+        }
+    }
 
     public abstract void Update();
 }
