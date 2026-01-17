@@ -3,24 +3,35 @@ using UnityEngine;
 
 public class SimBehaviourRoboTalk : SimBehaviourBase
 {
-
-    public TextMeshPro dialoguePrefab;
-    private TextMeshPro dialogue;
+    public string rutaTexto = "HoverText";
+    protected TextMeshPro dialogue;
     public string dialogueText;
 
 
-    public SimBehaviourRoboTalk(TextMeshPro dialoguePrefab, string dialogueText)
-    {
-        this.dialoguePrefab = dialoguePrefab;
-        
+    public SimBehaviourRoboTalk(string dialogueText)
+    {   
         this.dialogueText = dialogueText;
+    }
+
+    public SimBehaviourRoboTalk(string dialogueText, Sim sim)
+    {
+        this.dialogueText = dialogueText;
+        this.sim = sim;
+    }
+
+    public SimBehaviourRoboTalk()
+    {
     }
 
     public override void Awake()
     {
         if (started) return;
         started = true;
-        dialogue = Object.Instantiate(dialoguePrefab);
+        if(dialogue == null)
+        {
+            GameObject go = Object.Instantiate(Resources.Load(rutaTexto) as GameObject);
+            dialogue = go.GetComponent<TextMeshPro>();
+        }
         dialogue.text = dialogueText;
         dialogue.transform.position = sim.transform.position + new Vector3(0,4,0);
         timerDuration = 8;
@@ -30,13 +41,21 @@ public class SimBehaviourRoboTalk : SimBehaviourBase
 
     public override void Update()
     {
+        if(Time.time - timerStart >= 2 )
+        {
+            IsInterrumpible = true;
+        }
 
         if (TimerEnded)
         {
-            dialogue.gameObject.SetActive(false);
             sim.changeState(new SimBehaviourIdle(sim));
             started = false;
 
         }
+    }
+
+    public override void Asleep()
+    {
+        dialogue.gameObject.SetActive(false);
     }
 }

@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
   public enum interactTypes
     {
         lamp,
+        ball,
         tree,
         coin,
         bench,
@@ -31,27 +32,25 @@ public class Interactable : MonoBehaviour
             case interactTypes.lamp:
                 interactingBehaviour = new SimBehaviourLamp(this.gameObject);
                 break;
-             case interactTypes.tree:
+            case interactTypes.ball:
+                interactingBehaviour = new SimBehaviourBall(this.gameObject);
+                break;
+            case interactTypes.tree:
                 interactingBehaviour = new SimBehaviourTree();
                 break;
              case interactTypes.coin:
-                interactingBehaviour = new SimBehaviourCoin();
+                interactingBehaviour = new SimBehaviourRoboTalk("MONEY MONEY  @_@");
                 break;
              case interactTypes.bench:
                 interactingBehaviour = new SimBehaviourBench(this.gameObject);
                 break;
             case interactTypes.robo:
-                interactingBehaviour = new SimBehaviourRoboTalk(hoverTextPrefab,"BIP BOP");
+                interactingBehaviour = new SimBehaviourRoboTalk("BIP BOP  <| º_º|>");
                 break;
             case interactTypes.axe:
                 interactingBehaviour = new SimBehaviourAxe();
                 break;
-
-
-
         }
-
-
     }
     private void Update()
     {
@@ -60,10 +59,16 @@ public class Interactable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-       hoverText.gameObject.SetActive(true);
+        if (this.isActiveAndEnabled)
+        {
+            hoverText.gameObject.SetActive(true);
+        }
     }
     private void OnMouseExit()
     {
-        hoverText.gameObject.SetActive(false);
+        if (this.isActiveAndEnabled)
+        {
+            hoverText.gameObject.SetActive(false);
+        }
     }
 }

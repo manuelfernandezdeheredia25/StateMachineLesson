@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8748155064082792801}
   - component: {fileID: 1534744284550566841}
   - component: {fileID: 7135488880247235378}
+  - component: {fileID: 9192219914389414689}
   m_Layer: 0
   m_Name: ball
   m_TagString: ball
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4757502600880687893}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 4.4546585, y: 0.427369, z: -0.19221401}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &6723471161222012153
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -137,3 +138,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0033000004
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9192219914389414689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757502600880687893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2808329b7c40a4faf7466eaf47b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 1
+  hoverTextPrefab: {fileID: 6144333445777739636, guid: 50cd9d0e89fdf0140aabea18ffff5889, type: 3}

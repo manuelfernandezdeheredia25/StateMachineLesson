@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6468018666148614581}
   - component: {fileID: 4126630156696982180}
   - component: {fileID: 9039995085391629163}
+  - component: {fileID: 5389844393387973353}
   m_Layer: 0
   m_Name: SimRobo
   m_TagString: sim
@@ -115,8 +116,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2808329b7c40a4faf7466eaf47b265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: 5
+  interactable: 6
   hoverTextPrefab: {fileID: 6144333445777739636, guid: 50cd9d0e89fdf0140aabea18ffff5889, type: 3}
+--- !u!54 &5389844393387973353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124362203741686655}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2814947843585378888
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +172,7 @@ Transform:
   m_GameObject: {fileID: 2814947843585378888}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49991274, y: -0.50008726, z: -0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.13034904, y: 0.000046372414, z: 0.24637355}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:

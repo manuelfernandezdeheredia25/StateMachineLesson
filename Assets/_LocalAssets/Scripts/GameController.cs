@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
-
     [Header("Camera")]
     public float cameraPanSpeed = 0.01f;
     public float zoomSpeed = 0.01f, maxZoom = 20f, minZoom = 4f;
@@ -16,27 +15,12 @@ public class GameController : MonoBehaviour
     [Header("Prefabs")]
     public Sim sim;
     public GameObject ball;
-    //public GameObject selectorPrefab;
-    //public GameObject targetPrefab;
 
-    //private GameObject selectorObj, targetObj;
-    //private CubeActor selectedCube = null;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //selectorObj = Instantiate(selectorPrefab);
-        //selectorObj.SetActive(false);
-        //targetObj = Instantiate(targetPrefab);
-        //targetObj.SetActive(false);
-        
-    }
+    public bool moveBall = false;
 
-    // Update is called once per frame
     void Update()
     {
-
         HandleMouseInput();
-
     }
 
 
@@ -48,10 +32,7 @@ public class GameController : MonoBehaviour
             HandleLeftMouseInput();
             
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-            //HandleRightMouseInput();
-        }
+
         if (Input.GetMouseButton(2))
         {
             HandleMiddleMouseInput();
@@ -79,52 +60,22 @@ public class GameController : MonoBehaviour
 
     private void HandleLeftMouseInput()
     {
-        
-        //selectorObj.SetActive(false);
-        //selectedCube = null;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             TryInteract(hit);
-            
+
+            if (moveBall) { 
             ball.GetComponent<Rigidbody>().AddExplosionForce(120, hit.point, 5);
-            
+            }
         }
     }
-
-    //private void HandleRightMouseInput()
-    //{
-    //    //if (selectedCube == null)
-    //    //{
-    //    //    return;
-    //    //}
-    //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-    //    if (Physics.Raycast(ray, out RaycastHit hit)){
-            
-    //        if (hit.transform.gameObject.TryGetComponent<CubeActor>(out CubeActor actor))
-    //        {
-                
-    //            if (actor == selectedCube) return;
-
-    //            selectedCube.MoveTo(hit.transform.gameObject);
-    //            //TryFighting(actor);
-    //            return;
-    //        }
-
-    //        selectedCube.MoveTo(ray.origin + hit.distance * ray.direction.normalized + Vector3.up * 0.6f);
-    //    }
-    //}
-
-
 
     private void TryInteract(RaycastHit hit)
     {
         Debug.Log("Tocando " + hit.transform.name);
         
             sim.Interact(hit);
-
-        
     }
 }
