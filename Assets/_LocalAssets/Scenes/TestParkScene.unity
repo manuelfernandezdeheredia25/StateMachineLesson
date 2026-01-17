@@ -2235,7 +2235,7 @@ GameObject:
   - component: {fileID: 509861569}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2262,6 +2262,7 @@ MonoBehaviour:
   maxY: -3
   sim: {fileID: 713546648}
   ball: {fileID: 1655542598}
+  moveBall: 0
 --- !u!4 &509861570
 Transform:
   m_ObjectHideFlags: 0
@@ -9560,7 +9561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556888863172301497, guid: 708bb6b86ef10684fb03483bf2ac266d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.12
+      value: 7.12
       objectReference: {fileID: 0}
     - target: {fileID: 8556888863172301497, guid: 708bb6b86ef10684fb03483bf2ac266d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9568,7 +9569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8556888863172301497, guid: 708bb6b86ef10684fb03483bf2ac266d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.69
+      value: -0.387
       objectReference: {fileID: 0}
     - target: {fileID: 8556888863172301497, guid: 708bb6b86ef10684fb03483bf2ac266d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9643,6 +9644,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 543450652995949097}
     m_Modifications:
+    - target: {fileID: -8459670347685605617, guid: bb4a5a1e50a56f54981ee1619e35d8e1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6455974362048924819, guid: bb4a5a1e50a56f54981ee1619e35d8e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.05
@@ -9716,6 +9721,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 543450652995949097}
     m_Modifications:
+    - target: {fileID: 1773133851693633619, guid: be21b3c3cc745ad45913b76ab0a67eac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2077275794540814176, guid: be21b3c3cc745ad45913b76ab0a67eac, type: 3}
       propertyPath: m_Name
       value: tree

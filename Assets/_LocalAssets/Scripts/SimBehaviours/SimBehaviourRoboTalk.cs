@@ -33,7 +33,7 @@ public class SimBehaviourRoboTalk : SimBehaviourBase
             dialogue = go.GetComponent<TextMeshPro>();
         }
         dialogue.text = dialogueText;
-        dialogue.transform.position = sim.transform.position + new Vector3(0,4,0);
+        dialogue.transform.position = sim.transform.position + new Vector3(-1,5,-1);
         timerDuration = 8;
         StartTimer();
         dialogue.gameObject.SetActive(true);

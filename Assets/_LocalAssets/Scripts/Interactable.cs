@@ -36,7 +36,8 @@ public class Interactable : MonoBehaviour
                 interactingBehaviour = new SimBehaviourBall(this.gameObject);
                 break;
             case interactTypes.tree:
-                interactingBehaviour = new SimBehaviourTree();
+                //interactingBehaviour = new SimBehaviourTree();
+                interactingBehaviour = new SimBehaviourRoboTalk("LOT OF WOOD");
                 break;
              case interactTypes.coin:
                 interactingBehaviour = new SimBehaviourRoboTalk("MONEY MONEY  @_@");
@@ -48,7 +49,8 @@ public class Interactable : MonoBehaviour
                 interactingBehaviour = new SimBehaviourRoboTalk("BIP BOP  <| º_º|>");
                 break;
             case interactTypes.axe:
-                interactingBehaviour = new SimBehaviourAxe();
+                //interactingBehaviour = new SimBehaviourAxe();
+                interactingBehaviour = new SimBehaviourRoboTalk("DANGEROUS");
                 break;
         }
     }
