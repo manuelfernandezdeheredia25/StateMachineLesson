@@ -26,11 +26,6 @@ public class Sim : MonoBehaviour
         simBehaviour.Awake();
     }
 
-    public void moveTo()  // Por implementar 
-    {
-
-    }
-
     public void BecomeInterrumpible()
     {
         simBehaviour.IsInterrumpible = true;
