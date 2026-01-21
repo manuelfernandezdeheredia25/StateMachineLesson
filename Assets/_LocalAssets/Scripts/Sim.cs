@@ -10,7 +10,7 @@ public class Sim : MonoBehaviour
     public GameObject[] walkingPoints;
     public GameObject arm;
 
-   
+
 
     private void Awake()
     {

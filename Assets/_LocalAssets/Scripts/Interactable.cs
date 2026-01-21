@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
 {
     public SimBehaviourBase interactingBehaviour;
 
-  public enum interactTypes
+    public enum interactTypes
     {
         lamp,
         ball,
@@ -36,13 +36,13 @@ public class Interactable : MonoBehaviour
                 interactingBehaviour = new SimBehaviourBall(this.gameObject);
                 break;
             case interactTypes.tree:
-                //interactingBehaviour = new SimBehaviourTree();
-                interactingBehaviour = new SimBehaviourRoboTalk("LOT OF WOOD");
+                interactingBehaviour = new SimBehaviourTree(this.gameObject);
                 break;
-             case interactTypes.coin:
+            case interactTypes.coin:
+                //interactingBehaviour = new SimBehaviourCoin();
                 interactingBehaviour = new SimBehaviourRoboTalk("MONEY MONEY  @_@");
                 break;
-             case interactTypes.bench:
+            case interactTypes.bench:
                 interactingBehaviour = new SimBehaviourBench(this.gameObject);
                 break;
             case interactTypes.robo:

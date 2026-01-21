@@ -23,10 +23,8 @@ public class GameController : MonoBehaviour
         HandleMouseInput();
     }
 
-
     private void HandleMouseInput()
     {
-        
         if (Input.GetMouseButtonDown(0))
         {   
             HandleLeftMouseInput();
@@ -38,16 +36,13 @@ public class GameController : MonoBehaviour
             HandleMiddleMouseInput();
         }
         HandleMouseScrollInput();
-     
     }
 
     private void HandleMouseScrollInput()
-    {
-        
+    { 
         (float dx,float dy) = (Input.mouseScrollDelta.x, Input.mouseScrollDelta.y);
         float newScroll = Camera.main.orthographicSize - dy * zoomSpeed * Time.deltaTime;
         Camera.main.orthographicSize = Mathf.Clamp(newScroll, minZoom, maxZoom);
-
     }
 
     private void HandleMiddleMouseInput()

@@ -24,6 +24,6 @@ internal class SimBehaviourBall : SimBehaviourBase
 
     public override void Update()
     {
-       
+
     }
 }

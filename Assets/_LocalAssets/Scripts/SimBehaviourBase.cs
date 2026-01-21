@@ -3,21 +3,23 @@ using UnityEngine;
 public abstract class SimBehaviourBase : ISimBehaviour
 {
     protected Sim sim;
- 
+
     protected float timerStart = 0;
     protected float timerDuration = 10;
 
     protected bool started = false;
     public bool IsInterrumpible { get; set; }
+    protected ISimBehaviour nextState;
 
     public void SetSim(Sim sim)
     {
         this.sim = sim;
     }
-    public SimBehaviourBase(Sim sim)
+    public SimBehaviourBase(Sim sim, ISimBehaviour nextState = null)
     {
         this.sim = sim;
         IsInterrumpible = true;
+        this.nextState = nextState;
     }
 
     protected void StartTimer()

@@ -10,13 +10,13 @@ public class SimBehaviourIdle : SimBehaviourBase
 
     public override void Awake()
     {
-       StartTimer();
+        StartTimer();
     }
 
 
     public override void Update()
-    { 
-        if(TimerEnded)
+    {
+        if (TimerEnded)
         {
             sim.changeState(new SimBehaviourWalking(sim));
         }

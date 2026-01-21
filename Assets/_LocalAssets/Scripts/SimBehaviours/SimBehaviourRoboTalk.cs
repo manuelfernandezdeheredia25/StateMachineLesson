@@ -8,12 +8,13 @@ public class SimBehaviourRoboTalk : SimBehaviourBase
     public string dialogueText;
 
 
-    public SimBehaviourRoboTalk(string dialogueText)
-    {   
+    public SimBehaviourRoboTalk(string dialogueText, ISimBehaviour nextState = null)
+    {
         this.dialogueText = dialogueText;
+        this.nextState = nextState;
     }
 
-    public SimBehaviourRoboTalk(string dialogueText, Sim sim)
+    public SimBehaviourRoboTalk(string dialogueText, Sim sim,ISimBehaviour nextState = null) : base(sim, nextState) 
     {
         this.dialogueText = dialogueText;
         this.sim = sim;
@@ -27,13 +28,13 @@ public class SimBehaviourRoboTalk : SimBehaviourBase
     {
         if (started) return;
         started = true;
-        if(dialogue == null)
+        if (dialogue == null)
         {
             GameObject go = Object.Instantiate(Resources.Load(rutaTexto) as GameObject);
             dialogue = go.GetComponent<TextMeshPro>();
         }
         dialogue.text = dialogueText;
-        dialogue.transform.position = sim.transform.position + new Vector3(-1,5,-1);
+        dialogue.transform.position = sim.transform.position + new Vector3(-1, 5, -1);
         timerDuration = 8;
         StartTimer();
         dialogue.gameObject.SetActive(true);
@@ -41,16 +42,20 @@ public class SimBehaviourRoboTalk : SimBehaviourBase
 
     public override void Update()
     {
-        if(Time.time - timerStart >= 2 )
+        if (Time.time - timerStart >= 2)
         {
             IsInterrumpible = true;
         }
 
         if (TimerEnded)
         {
-            sim.changeState(new SimBehaviourIdle(sim));
             started = false;
-
+            if (nextState != null)
+            {
+                sim.changeState(nextState);
+                return;
+            }
+            sim.changeState(new SimBehaviourIdle(sim));
         }
     }
 

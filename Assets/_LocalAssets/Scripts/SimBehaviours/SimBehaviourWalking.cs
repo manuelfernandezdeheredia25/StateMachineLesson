@@ -6,7 +6,7 @@ public class SimBehaviourWalking : SimBehaviourBase
 
     public SimBehaviourWalking(Sim sim) : base(sim)
     {
-    
+
     }
 
     public override void Awake()
@@ -26,22 +26,20 @@ public class SimBehaviourWalking : SimBehaviourBase
     }
 
     public override void Update()
-    {  
-       sim.transform.position = Vector3.MoveTowards(sim.transform.position, sim.walkingPoints[count].transform.position, sim.speed*0.5f * Time.deltaTime);
-       //sim.transform.rotation = Quaternion.LookRotation(sim.walkingPoints[count].transform.position - sim.transform.position);
-       sim.transform.forward = Vector3.RotateTowards(sim.transform.forward, sim.walkingPoints[count].transform.position - sim.transform.position, 5 * Time.deltaTime, 1);
+    {
+        sim.transform.position = Vector3.MoveTowards(sim.transform.position, sim.walkingPoints[count].transform.position, sim.speed * 0.5f * Time.deltaTime);
+        //sim.transform.rotation = Quaternion.LookRotation(sim.walkingPoints[count].transform.position - sim.transform.position);
+        sim.transform.forward = Vector3.RotateTowards(sim.transform.forward, sim.walkingPoints[count].transform.position - sim.transform.position, 5 * Time.deltaTime, 1);
 
         if (Vector3.Distance(sim.transform.position, sim.walkingPoints[count].transform.position) < 0.01f)
-       {
-          count++;
-       }
-       if(count>= sim.walkingPoints.Length){
-          
-          sim.changeState(new SimBehaviourIdle(sim));
-       }
+        {
+            count++;
+        }
+        if (count >= sim.walkingPoints.Length)
+        {
+
+            sim.changeState(new SimBehaviourIdle(sim));
+        }
     }
-        
-       
-        
-    }
+}
 

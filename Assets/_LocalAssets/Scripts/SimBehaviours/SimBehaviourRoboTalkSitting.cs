@@ -4,7 +4,7 @@ using UnityEngine;
 public class SimBehaviourRoboTalkSitting : SimBehaviourRoboTalk
 {
     public SimBehaviourRoboTalkSitting(string dialogueText)
-    {   
+    {
         this.dialogueText = dialogueText;
     }
 
