@@ -26,7 +26,7 @@ Maquina de estados finita, de modelo matemático a código
 
 - Separar cada estado (state) único en una clase diferente, que implementen la misma interfaz
 - La maquina que cambia de estados(Context) contiene por composición su estado actual
--Toda la logíca de la clase Context se delega a su estado actual.
+-Toda la lógica de la clase Context se delega a su estado actual.
 
 
 
