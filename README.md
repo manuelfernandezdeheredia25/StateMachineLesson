@@ -13,7 +13,7 @@ Quiza explicar brevemente singleton o alguno de los faciles
 
 Maquina de estados finita, de modelo matemático a código 
 
-¿Cuál es la mejor manera de implementarla?
+Implementación mala:
 
 - Switch/if statements
     * Intuitivo
