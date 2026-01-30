@@ -6,7 +6,6 @@ public class SoundManager : MonoBehaviour
 {
     public AudioClip PlayButtonSound;
     public AudioClip ExitButtonSound;
-    public AudioClip CoinSound;
     private AudioSource audioMenu;
     int r = 1;
 
@@ -25,11 +24,6 @@ public class SoundManager : MonoBehaviour
         StartCoroutine(WaitSoundExit());
     }
 
-    public void PlayCoinSound()
-    {
-        StartCoroutine(WaitSoundCoin());
-    }
-
     IEnumerator WaitSoundPlay()
     {
         audioMenu.PlayOneShot(PlayButtonSound);
@@ -42,11 +36,5 @@ public class SoundManager : MonoBehaviour
         audioMenu.PlayOneShot(ExitButtonSound);
         yield return new WaitForSeconds(1f);
         Application.Quit();
-    }
-
-    IEnumerator WaitSoundCoin()
-    {
-        audioMenu.PlayOneShot(CoinSound);
-        yield return new WaitForSeconds(1f);
     }
 }
